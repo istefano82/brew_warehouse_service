@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import WarehouseItem
 
-# Register your models here.
+@admin.register(WarehouseItem)
+class WarehouseItemAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'pk', 'title', 'content', 'quantity'
+    )
