@@ -28,6 +28,13 @@ DEBUG = int(os.environ.get("DEBUG", default=1))
 
 ALLOWED_HOSTS = ['*']
 
+AUTH_SERVICE_HOST = os.environ.get('AUTH_SERVICE_HOST')
+AUTH_SERVICE_PORT = os.environ.get('AUTH_SERVICE_PORT')
+AUTH_SERVICE_VERIFY_JWT = os.environ.get('AUTH_SERVICE_VERIFY_JWT')
+
+AUTH_SERVICE_VERIFY_JWT_URL = f'http://{AUTH_SERVICE_HOST}:{AUTH_SERVICE_PORT}{AUTH_SERVICE_VERIFY_JWT}'
+
+
 
 # Application definition
 
@@ -140,5 +147,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+
 STATIC_URL = "/staticfiles/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/brew_warehouse/webstatic")

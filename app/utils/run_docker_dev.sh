@@ -20,7 +20,7 @@ run() {
   ${RUN} makemigrations
   ${RUN} migrate
   ${RUN} collectstatic --no-input --clear
-  echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', '', 'admin')" | python3 manage.py shell
+  echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin1', '', 'admin1')" | python3 manage.py shell
   ${RUN} runserver ${HOST}:${PORT}
 }
 

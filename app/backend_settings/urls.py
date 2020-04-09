@@ -24,9 +24,9 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Snippets API",
+        title="Brew Warehouse API",
         default_version='v0',
-        description="Brew Authentication API",
+        description="Brew Warehouse API",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="contact@snippets.local"),
         license=openapi.License(name="BSD License"),
@@ -46,6 +46,7 @@ drf_yasg_urls = [
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('api/v0/brew_warehouse/', include('brew_warehouse.urls'), name='brew_warehouse')
+    ]
 
 urlpatterns += drf_yasg_urls
