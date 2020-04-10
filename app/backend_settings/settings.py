@@ -28,12 +28,7 @@ DEBUG = int(os.environ.get("DEBUG", default=1))
 
 ALLOWED_HOSTS = ['*']
 
-AUTH_SERVICE_HOST = os.environ.get('AUTH_SERVICE_HOST')
-AUTH_SERVICE_PORT = os.environ.get('AUTH_SERVICE_PORT')
-AUTH_SERVICE_VERIFY_JWT = os.environ.get('AUTH_SERVICE_VERIFY_JWT')
-
-AUTH_SERVICE_VERIFY_JWT_URL = f'http://{AUTH_SERVICE_HOST}:{AUTH_SERVICE_PORT}{AUTH_SERVICE_VERIFY_JWT}'
-
+AUTH_SERVICE_VERIFY_JWT_URL = os.environ.get('AUTH_SERVICE_URL')
 
 
 # Application definition
@@ -150,3 +145,17 @@ USE_TZ = True
 
 STATIC_URL = "/staticfiles/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/brew_warehouse/webstatic")
+
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Basic': {
+            'type': 'basic'
+      },
+      'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      }
+   }
+}
+
