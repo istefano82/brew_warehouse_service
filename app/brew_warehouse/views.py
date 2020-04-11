@@ -48,7 +48,7 @@ class WarehouseItemViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def create(self, reqeust):
-        """List all warehouse items.
+        """Create a warehouse item.
 
         in parameter: Authorization Header {'token': 'valid JWT auth token'}
         """
